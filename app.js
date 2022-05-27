@@ -6,6 +6,8 @@ const app = express();
 app.set("view engine", "ejs"); // set up ejs for templating
 
 app.use(bodyParser.urlencoded({extended: true})); // parse form data client side
+app.use(express.static("public")); // set up static files folder
+
 
 let items = ["Buy Food", "Cook Food", "Eat Food"]; // outer scoped for all routes
 

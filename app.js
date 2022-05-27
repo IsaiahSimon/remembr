@@ -10,6 +10,7 @@ app.use(express.static("public")); // set up static files folder
 
 
 let items = ["Buy Food", "Cook Food", "Eat Food"]; // outer scoped for all routes
+let workItems = [];
 
 // Home page
 app.get("/", (req, res) => {
@@ -23,14 +24,36 @@ app.get("/", (req, res) => {
 
   const day = today.toLocaleDateString("en-US", options);
 
-  res.render("list", {kindOfDay: day, newListItems: items}); // render the list.ejs file with all variables
+  res.render("list", {listTitle: day, newListItems: items}); // render the list.ejs file with all variables
 });
 
-// POST route
+// POST route from form
 app.post("/", (req,res) => {
   let item = req.body.newItem; // get the new item from the form
-  items.push(item);
-  res.redirect("/");
+
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
+    items.push(item);
+    res.redirect("/");
+  }
+});
+
+// Work route
+app.get("/work", (req, res) => {
+  res.render("list", {listTitle: "Work List", newListItems: workItems});
+});
+
+app.post("/work", (req, res) => {
+  let item = req.body.newItem;
+  workItems.push(item);
+  res.redirect("/work");
+})
+
+// About route
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 // Start the server

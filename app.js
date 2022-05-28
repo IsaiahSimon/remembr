@@ -1,35 +1,27 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-
+const date = require(__dirname + "/date.js");
 
 app.set("view engine", "ejs"); // set up ejs for templating
 
-app.use(bodyParser.urlencoded({extended: true})); // parse form data client side
+app.use(bodyParser.urlencoded({ extended: true })); // parse form data client side
 app.use(express.static("public")); // set up static files folder
 
+const items = ["Buy Food", "Cook Food", "Eat Food"]; // outer scoped for all routes
+const workItems = [];
 
-let items = ["Buy Food", "Cook Food", "Eat Food"]; // outer scoped for all routes
-let workItems = [];
-
-// Home page
+// Home route
 app.get("/", (req, res) => {
-  const today = new Date();
+  const day = date.getDate();
+  // const day = date.getDay();   // optional: to use getDay() instead of getDate()
 
-  const options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-  };
-
-  const day = today.toLocaleDateString("en-US", options);
-
-  res.render("list", {listTitle: day, newListItems: items}); // render the list.ejs file with all variables
+  res.render("list", { listTitle: day, newListItems: items }); // render the list.ejs file with all variables
 });
 
 // POST route from form
-app.post("/", (req,res) => {
-  let item = req.body.newItem; // get the new item from the form
+app.post("/", (req, res) => {
+  const item = req.body.newItem; // get the new item from the form
 
   if (req.body.list === "Work") {
     workItems.push(item);
@@ -42,11 +34,11 @@ app.post("/", (req,res) => {
 
 // Work route
 app.get("/work", (req, res) => {
-  res.render("list", {listTitle: "Work List", newListItems: workItems});
+  res.render("list", { listTitle: "Work List", newListItems: workItems });
 });
 
 app.post("/work", (req, res) => {
-  let item = req.body.newItem;
+  const item = req.body.newItem;
   workItems.push(item);
   res.redirect("/work");
 })

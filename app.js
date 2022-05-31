@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const _ = require("lodash");
 //const date = require(__dirname + "/date.js");                             // simplify for adding MongoDB
 
 const app = express();
@@ -67,7 +68,7 @@ app.get("/", (req, res) => {
 
 // Create dynamic lists using Express route parameters
 app.get("/:customListName", (req, res) => {
-  const customListName = req.params.customListName;                        // get custom list name from URL
+  const customListName = _.capitalize(req.params.customListName);                       // get custom list name from URL
 
   List.findOne({name: customListName}, (err, foundList) => {             // find list in DB));
     if (!err) {

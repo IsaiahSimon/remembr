@@ -23,7 +23,7 @@ const Item = mongoose.model(                                                // c
 );
 
 const item1 = new Item({                                                    // create new item
-  name: "Welcome to your todolist!"
+  name: "Welcome to your todo list!"
 });
 
 const item2 = new Item({
@@ -69,6 +69,18 @@ app.post("/", (req, res) => {
   item.save();                                                              // save item to DB
 
   res.redirect("/");                                                        // redirect to home page
+});
+
+// POST route from form to delete item
+app.post("/delete", (req, res) => {
+  const checkedItemId = (req.body.checkbox);
+
+  Item.findByIdAndRemove(checkedItemId, (err) => {
+    if (!err) {
+      console.log("Successfully removed item from DB.");
+      res.redirect("/")
+    }
+  });
 });
 
 // Work route

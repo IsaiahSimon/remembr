@@ -36,6 +36,13 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];                                 // create default items
 
+const listSchema = new Schema({                                             // create schema for lists
+  name: String,
+  items: [itemsSchema]                                                      // items is an array of itemsSchema
+});
+
+const List = mongoose.model("List", listSchema);                            // create model for lists
+
 // Home route
 app.get("/", (req, res) => {
   // const day = date.getDate();                                            // simplify for adding MongoDB
@@ -58,17 +65,50 @@ app.get("/", (req, res) => {
   });
 });
 
+// Create dynamic lists using Express route parameters
+app.get("/:customListName", (req, res) => {
+  const customListName = req.params.customListName;                        // get custom list name from URL
+
+  List.findOne({name: customListName}, (err, foundList) => {             // find list in DB));
+    if (!err) {
+      if (!foundList) {
+        // Create new list
+        const list = new List({
+          name: customListName,                                                 // set name of list to custom list name
+          items: defaultItems                                                   // set items to default items
+        });
+
+        list.save();
+        res.redirect("/" + customListName);                                     // redirect to custom list
+      } else {
+        // Show existing list
+        res.render("list", { listTitle: foundList.name, newListItems: foundList.items }); // render the list.ejs file with all variables
+      }
+    }
+  });
+
+
+});
+
 // POST route from form
 app.post("/", (req, res) => {
   const itemName = req.body.newItem;                                        // get the new item from the form
+  const listName = req.body.list;                                          // get the list name from the form
 
   const item = new Item({                                                   // create new item
     name: itemName
   });
 
-  item.save();                                                              // save item to DB
-
-  res.redirect("/");                                                        // redirect to home page
+  if (listName === "Today") {                                              // if list is Today, insert item into DB
+    item.save();                                                              // save item to DB
+    res.redirect("/");                                                        // redirect to home page
+  } else {
+    List.findOne({name: listName}, (err, foundList) => {                     // find list in DB
+      foundList.items.push(item);                                             // push item into list items array
+      foundList.save();                                                       // save list to DB
+      res.redirect("/" + listName);                                           // redirect to custom list
+    });
+  }
 });
 
 // POST route from form to delete item
@@ -81,11 +121,6 @@ app.post("/delete", (req, res) => {
       res.redirect("/")
     }
   });
-});
-
-// Work route
-app.get("/work", (req, res) => {
-  res.render("list", { listTitle: "Work List", newListItems: workItems });
 });
 
 app.post("/work", (req, res) => {

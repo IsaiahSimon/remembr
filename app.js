@@ -114,13 +114,26 @@ app.post("/", (req, res) => {
 // POST route from form to delete item
 app.post("/delete", (req, res) => {
   const checkedItemId = (req.body.checkbox);
+  const listName = req.body.listName;                                      // get the list name from the form
 
-  Item.findByIdAndRemove(checkedItemId, (err) => {
-    if (!err) {
-      console.log("Successfully removed item from DB.");
-      res.redirect("/")
-    }
-  });
+  // Check if list is Today or custom list
+  if (listName === "Today") {
+    Item.findByIdAndRemove(checkedItemId, (err) => {
+      if (!err) {
+        console.log("Successfully removed item from DB.");
+        res.redirect("/")
+      }
+    });
+  } else {
+    // findOneAndUpdate({conditions}, {updates}, callback)
+    // findOneAndUpdate({conditions}, {$pull: {field}: {query}}}, callback)
+    // findOneAndUpdate({conditions}, {$pull: {field}: {_id: value}}}, callback)
+    List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}}, (err, foundList) => {
+      if (!err) {
+        res.redirect("/" + listName);
+      }
+    });
+  }
 });
 
 app.post("/work", (req, res) => {

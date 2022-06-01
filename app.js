@@ -3,6 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const _ = require("lodash");
+const dotenv = require("dotenv").config();
+const PORT = process.env.PORT || 3000;
+const DB_PWD = process.env.DB_PWD;
+
 //const date = require(__dirname + "/date.js");                             // simplify for adding MongoDB
 
 const app = express();
@@ -12,7 +16,7 @@ app.set("view engine", "ejs");                                              // s
 app.use(bodyParser.urlencoded({ extended: true }));                         // parse form data client side
 app.use(express.static("public"));                                          // set up static files folder
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", { useNewUrlParser: true }); // connect to mongodb
+mongoose.connect(`mongodb+srv://isimondev:${DB_PWD}@cluster0.cow7c.mongodb.net/todolistDB`, { useNewUrlParser: true }); // connect to mongodb
 
 const itemsSchema = new Schema({                                            // create schema for items
   name: String
@@ -149,4 +153,4 @@ app.get("/about", (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => console.log("Server started on port 3000"))
+app.listen(PORT || 3000, () => console.log(`Server started on port ${PORT}.`));

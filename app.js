@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const _ = require("lodash");
 const dotenv = require("dotenv").config();
-const PORT = process.env.PORT || 3000;
 const DB_PWD = process.env.DB_PWD;
 
 //const date = require(__dirname + "/date.js");                             // simplify for adding MongoDB
@@ -153,4 +152,9 @@ app.get("/about", (req, res) => {
 });
 
 // Start the server
-app.listen(PORT || 3000, () => console.log(`Server started on port ${PORT}.`));
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
+app.listen(port, () => console.log(`Server started on port ${port}.`));

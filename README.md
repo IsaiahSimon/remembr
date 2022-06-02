@@ -47,7 +47,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -66,7 +65,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Project Name Screen Shot][project-screenshot]](./public/images/gifs-remembr-todo-list.gif)
+[![Product Name Screen Shot][product-screenshot]]
 
 Remembr is a full-stack ToDo list app that can dynamically generate additional custom lists.
 - Add new items to a list by typing in the item, then clicking the "+" button or pressing ENTER on keyboard.
@@ -202,7 +201,7 @@ Project Link: [https://github.com/IsaiahSimon/remembr](https://github.com/Isaiah
 * [MongoDB CRUD Operations](https://www.mongodb.com/docs/manual/crud/)
 * [Getting Started with Mongoose](https://mongoosejs.com/docs/index.html)
 * [Mongoose API Docs](https://mongoosejs.com/docs/api.html)
-* [Express routing](Routing)
+* [Express routing](https://expressjs.com/en/guide/routing.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -222,4 +221,4 @@ Project Link: [https://github.com/IsaiahSimon/remembr](https://github.com/Isaiah
 [license-url]: https://github.com/IsaiahSimon/remembr/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/isaiahsimon101
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: ./public/images/gifs-remembr-todo-list.gif

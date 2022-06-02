@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/IsaiahSimon/remembr">
+  <a href="https://github.com/IsaiahSimon">
     <img src="https://github.com/IsaiahSimon/IsaiahSimon/blob/main/images/logo_500x500_dark.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -24,7 +24,7 @@
     <a href="https://github.com/IsaiahSimon/remembr"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/IsaiahSimon/remembr">View Demo</a>
+    <a href="https://remembr-todo.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/IsaiahSimon/remembr/issues">Report Bug</a>
     ·
@@ -65,7 +65,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+[![Product Name Screen Shot][product-screenshot]](https://remembr-todo.herokuapp.com/)
 
 Remembr is a full-stack ToDo list app that can dynamically generate additional custom lists.
 - Add new items to a list by typing in the item, then clicking the "+" button or pressing ENTER on keyboard.
@@ -218,7 +218,7 @@ Project Link: [https://github.com/IsaiahSimon/remembr](https://github.com/Isaiah
 [issues-shield]: https://img.shields.io/github/issues/IsaiahSimon/remembr.svg?style=for-the-badge
 [issues-url]: https://github.com/IsaiahSimon/remembr/issues
 [license-shield]: https://img.shields.io/github/license/IsaiahSimon/remembr.svg?style=for-the-badge
-[license-url]: https://github.com/IsaiahSimon/remembr/blob/master/LICENSE.txt
+[license-url]: https://github.com/IsaiahSimon/remembr/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/isaiahsimon101
 [product-screenshot]: ./public/images/gifs-remembr-todo-list.gif

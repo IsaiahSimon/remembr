@@ -44,6 +44,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#lessons-learned">Lessons Learned</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -52,7 +53,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#lessons-learned">Lessons Learned</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -67,7 +67,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://remembr-todo.herokuapp.com/)
 
-Remembr is a full-stack ToDo list app that can dynamically generate additional custom lists.
+Remembr is a full-stack ToDo list app that can dynamically generate additional custom lists!
 - Add new items to a list by typing in the item, then clicking the "+" button or pressing ENTER on keyboard.
 - Cross completed items off the list by clicking the checkbox next to it.
 - To make a custom list:
@@ -93,6 +93,30 @@ Remembr is a full-stack ToDo list app that can dynamically generate additional c
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- LESSONS LEARNED -->
+## Lessons Learned
+<details>
+<summary>
+Gained a **LOT** from building this project, but I would say my biggest takeaway was learning how to deploy an app with a database using MongoDB Atlas...
+</summary>
+
+**MongoDB / MongoDB Atlas:**
+- SQL vs. NoSQL databases
+- CRUD operations
+- MongoDB shell (mongosh)
+- MongoDB Native Driver vs. Mongoose
+
+**EJS:**
+- EJS tags (<%=, <% , <%-)
+- reusable layouts (header and footer)
+- Static websites vs Dynamic websites
+
+**Express.js:**
+- how Node Module Exports work by building my own custom module
+- how to pass functions and data between files using Node Module Exports
+- how to serve static files via a public folder
+</details>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -134,26 +158,6 @@ See the [open issues](https://github.com/IsaiahSimon/remembr/issues) for a full 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- LESSONS LEARNED -->
-## Lessons Learned
-
-Gained a **LOT** from building this project, but I would say my biggest takeaway was learning how to deploy an app with a database using MongoDB Atlas.
-
-MongoDB / MongoDB Atlas:
-- SQL vs. NoSQL databases
-- CRUD operations
-- MongoDB shell (mongosh)
-- MongoDB Native Driver vs. Mongoose
-
-EJS:
-- EJS tags (<%=, <% , <%-)
-- reusable layouts (header and footer)
-- Static websites vs Dynamic websites
-
-Express.js:
-- how Node Module Exports work by building my own custom module
-- how to pass functions and data between files using Node Module Exports
-- how to serve static files via a public folder
 
 <!-- CONTRIBUTING -->
 ## Contributing

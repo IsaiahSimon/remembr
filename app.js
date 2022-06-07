@@ -1,9 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const _ = require("lodash");
-const dotenv = require("dotenv").config();
 const DB_PWD = process.env.DB_PWD;
 
 //const date = require(__dirname + "/date.js");                             // simplify for adding MongoDB

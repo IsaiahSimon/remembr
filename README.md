@@ -152,6 +152,7 @@ Set up the project locally or use the [demo](https://remembr-todo.herokuapp.com/
 - [x] Deploy app on Heroku
 - [ ] Improve navigation between pages
     - conflicts with the way custom lists are currently made by appending URL
+- [ ] Add user Authentication & Security
 
 
 See the [open issues](https://github.com/IsaiahSimon/remembr/issues) for a full list of proposed features (and known issues).

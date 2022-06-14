@@ -15,7 +15,7 @@ app.set("view engine", "ejs");                                              // s
 app.use(bodyParser.urlencoded({ extended: true }));                         // parse form data client side
 app.use(express.static("public"));                                          // set up static files folder
 
-mongoose.connect(`mongodb+srv://isimondev:${DB_PWD}@cluster0.cow7c.mongodb.net/todolistDB`, { useNewUrlParser: true }); // connect to mongodb
+mongoose.connect(`${process.env.DB_STRING}`); // connect to mongodb
 
 const itemsSchema = new Schema({                                            // create schema for items
   name: String

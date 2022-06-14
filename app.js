@@ -6,8 +6,6 @@ const Schema = mongoose.Schema;
 const _ = require("lodash");
 const DB_PWD = process.env.DB_PWD;
 
-//const date = require(__dirname + "/date.js");                             // simplify for adding MongoDB
-
 const app = express();
 
 app.set("view engine", "ejs");                                              // set up ejs for templating
